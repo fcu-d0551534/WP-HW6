@@ -1,0 +1,62 @@
+# WP-HW6
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>範例</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+</script>
+<body>
+    <h2>請選擇學院</h2>
+    <select id="college-list"></select>
+    <h2>請選擇系所</h2>
+    <select id="form-list"></select>
+</body>
+<script>
+var i;
+var colleges = ["資電學院","商學院","國際科技與管理學院"];
+var engineer = ["資訊工程學系","電機工程學系","電子工程學系","自動控制工程學系","通訊工程學系","資電不分系榮譽班","資訊電機工程碩士在職學位學程","產業研發碩士專班","生醫資訊暨生醫工程碩士學位學程","視光科技碩士在職學位學程","電機與通訊工程博士學位學程"];
+var money = ["會計學系","國際經營與貿易學系","國際經營與貿易學系","國際企業管理全英語學士班","財稅學系","合作經濟暨社會事業經營學系","統計學系","經濟學系","企業管理學系","行銷學系","國際企業管理學士學位學程(英語專班)","商學進修學士學位學程","財經法律研究所","科技管理碩士學位學程","產業碩士專班","商學專業碩士在職學位學程","商學博士學位學程"];
+var international = ["澳洲墨爾本皇家理工大學商學與創新雙學士學位學程",
+"美國聖荷西州立大學商學大數據分析雙學士學位學程",
+"美國普渡大學電機資訊雙學士學位學程",
+"西班牙薩拉戈薩大學物流供應鏈管理與創新創業雙碩士學位學程",
+"國際經營管理碩士學位學程"];
+$(document).ready(function(){
+ for(i=0;i<colleges.length;i++){
+	$("#college-list").append('<option value="'+i+'">'+colleges[i]+'</option>');
+ }
+  for(i=0;i<engineer.length;i++){
+	$("#form-list").append('<option value="'+i+'">'+engineer[i]+'</option>');
+ }
+ $("#college-list").change(function(){
+ var val = $("#college-list").val();
+ switch(val){
+	case "0":
+	$("#form-list").empty();
+	for(i=0;i<engineer.length;i++){
+	$("#form-list").append('<option value="'+i+'">'+engineer[i]+'</option>');
+	}
+	break;
+	
+	case "1":
+	$("#form-list").empty();
+	for(i=0;i<money.length;i++){
+	$("#form-list").append('<option value="'+i+'">'+money[i]+'</option>');
+	}
+	break;
+	
+	case "2":
+	$("#form-list").empty();
+	for(i=0;i<international.length;i++){
+	$("#form-list").append('<option value="'+i+'">'+international[i]+'</option>');
+	}
+	break;
+	}
+ });
+});
+</script>
+</head>
+
+
+</html>
